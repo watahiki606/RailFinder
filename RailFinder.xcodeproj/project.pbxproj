@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60929E6147100CB5880 /* RailFinderApp.swift */; };
+		2D85F60C29E6147100CB5880 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60B29E6147100CB5880 /* ContentView.swift */; };
+		2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F60D29E6147100CB5880 /* Assets.xcassets */; };
+		2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F61029E6147100CB5880 /* Preview Assets.xcassets */; };
+		2D85F61B29E6147100CB5880 /* RailFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F61A29E6147100CB5880 /* RailFinderTests.swift */; };
+		2D85F62529E6147100CB5880 /* RailFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62429E6147100CB5880 /* RailFinderUITests.swift */; };
+		2D85F62729E6147100CB5880 /* RailFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D85F61729E6147100CB5880 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D85F5FE29E6147100CB5880 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D85F60529E6147100CB5880;
+			remoteInfo = RailFinder;
+		};
+		2D85F62129E6147100CB5880 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D85F5FE29E6147100CB5880 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D85F60529E6147100CB5880;
+			remoteInfo = RailFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D85F60629E6147100CB5880 /* RailFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D85F60929E6147100CB5880 /* RailFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderApp.swift; sourceTree = "<group>"; };
+		2D85F60B29E6147100CB5880 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2D85F60D29E6147100CB5880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D85F61029E6147100CB5880 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2D85F61629E6147100CB5880 /* RailFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D85F61A29E6147100CB5880 /* RailFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderTests.swift; sourceTree = "<group>"; };
+		2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D85F62429E6147100CB5880 /* RailFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITests.swift; sourceTree = "<group>"; };
+		2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D85F60329E6147100CB5880 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61329E6147100CB5880 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61D29E6147100CB5880 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D85F5FD29E6147100CB5880 = {
+			isa = PBXGroup;
+			children = (
+				2D85F60829E6147100CB5880 /* RailFinder */,
+				2D85F61929E6147100CB5880 /* RailFinderTests */,
+				2D85F62329E6147100CB5880 /* RailFinderUITests */,
+				2D85F60729E6147100CB5880 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D85F60729E6147100CB5880 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D85F60629E6147100CB5880 /* RailFinder.app */,
+				2D85F61629E6147100CB5880 /* RailFinderTests.xctest */,
+				2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D85F60829E6147100CB5880 /* RailFinder */ = {
+			isa = PBXGroup;
+			children = (
+				2D85F60929E6147100CB5880 /* RailFinderApp.swift */,
+				2D85F60B29E6147100CB5880 /* ContentView.swift */,
+				2D85F60D29E6147100CB5880 /* Assets.xcassets */,
+				2D85F60F29E6147100CB5880 /* Preview Content */,
+			);
+			path = RailFinder;
+			sourceTree = "<group>";
+		};
+		2D85F60F29E6147100CB5880 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2D85F61029E6147100CB5880 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2D85F61929E6147100CB5880 /* RailFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D85F61A29E6147100CB5880 /* RailFinderTests.swift */,
+			);
+			path = RailFinderTests;
+			sourceTree = "<group>";
+		};
+		2D85F62329E6147100CB5880 /* RailFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2D85F62429E6147100CB5880 /* RailFinderUITests.swift */,
+				2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */,
+			);
+			path = RailFinderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D85F60529E6147100CB5880 /* RailFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D85F62A29E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinder" */;
+			buildPhases = (
+				2D85F60229E6147100CB5880 /* Sources */,
+				2D85F60329E6147100CB5880 /* Frameworks */,
+				2D85F60429E6147100CB5880 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RailFinder;
+			productName = RailFinder;
+			productReference = 2D85F60629E6147100CB5880 /* RailFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D85F61529E6147100CB5880 /* RailFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D85F62D29E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinderTests" */;
+			buildPhases = (
+				2D85F61229E6147100CB5880 /* Sources */,
+				2D85F61329E6147100CB5880 /* Frameworks */,
+				2D85F61429E6147100CB5880 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D85F61829E6147100CB5880 /* PBXTargetDependency */,
+			);
+			name = RailFinderTests;
+			productName = RailFinderTests;
+			productReference = 2D85F61629E6147100CB5880 /* RailFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2D85F61F29E6147100CB5880 /* RailFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D85F63029E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinderUITests" */;
+			buildPhases = (
+				2D85F61C29E6147100CB5880 /* Sources */,
+				2D85F61D29E6147100CB5880 /* Frameworks */,
+				2D85F61E29E6147100CB5880 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D85F62229E6147100CB5880 /* PBXTargetDependency */,
+			);
+			name = RailFinderUITests;
+			productName = RailFinderUITests;
+			productReference = 2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D85F5FE29E6147100CB5880 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2D85F60529E6147100CB5880 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					2D85F61529E6147100CB5880 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 2D85F60529E6147100CB5880;
+					};
+					2D85F61F29E6147100CB5880 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 2D85F60529E6147100CB5880;
+					};
+				};
+			};
+			buildConfigurationList = 2D85F60129E6147100CB5880 /* Build configuration list for PBXProject "RailFinder" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D85F5FD29E6147100CB5880;
+			productRefGroup = 2D85F60729E6147100CB5880 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D85F60529E6147100CB5880 /* RailFinder */,
+				2D85F61529E6147100CB5880 /* RailFinderTests */,
+				2D85F61F29E6147100CB5880 /* RailFinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D85F60429E6147100CB5880 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */,
+				2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61429E6147100CB5880 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61E29E6147100CB5880 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D85F60229E6147100CB5880 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D85F60C29E6147100CB5880 /* ContentView.swift in Sources */,
+				2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61229E6147100CB5880 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D85F61B29E6147100CB5880 /* RailFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D85F61C29E6147100CB5880 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D85F62729E6147100CB5880 /* RailFinderUITestsLaunchTests.swift in Sources */,
+				2D85F62529E6147100CB5880 /* RailFinderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D85F61829E6147100CB5880 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D85F60529E6147100CB5880 /* RailFinder */;
+			targetProxy = 2D85F61729E6147100CB5880 /* PBXContainerItemProxy */;
+		};
+		2D85F62229E6147100CB5880 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D85F60529E6147100CB5880 /* RailFinder */;
+			targetProxy = 2D85F62129E6147100CB5880 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2D85F62829E6147100CB5880 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D85F62929E6147100CB5880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D85F62B29E6147100CB5880 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailFinder/Preview Content\"";
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D85F62C29E6147100CB5880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailFinder/Preview Content\"";
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2D85F62E29E6147100CB5880 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailFinder";
+			};
+			name = Debug;
+		};
+		2D85F62F29E6147100CB5880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailFinder";
+			};
+			name = Release;
+		};
+		2D85F63129E6147100CB5880 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailFinder;
+			};
+			name = Debug;
+		};
+		2D85F63229E6147100CB5880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailFinder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D85F60129E6147100CB5880 /* Build configuration list for PBXProject "RailFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D85F62829E6147100CB5880 /* Debug */,
+				2D85F62929E6147100CB5880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D85F62A29E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D85F62B29E6147100CB5880 /* Debug */,
+				2D85F62C29E6147100CB5880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D85F62D29E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D85F62E29E6147100CB5880 /* Debug */,
+				2D85F62F29E6147100CB5880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D85F63029E6147100CB5880 /* Build configuration list for PBXNativeTarget "RailFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D85F63129E6147100CB5880 /* Debug */,
+				2D85F63229E6147100CB5880 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D85F5FE29E6147100CB5880 /* Project object */;
+}
