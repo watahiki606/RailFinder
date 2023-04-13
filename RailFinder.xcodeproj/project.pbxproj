@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60929E6147100CB5880 /* RailFinderApp.swift */; };
-		2D85F60C29E6147100CB5880 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60B29E6147100CB5880 /* ContentView.swift */; };
 		2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F60D29E6147100CB5880 /* Assets.xcassets */; };
 		2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F61029E6147100CB5880 /* Preview Assets.xcassets */; };
 		2D85F61B29E6147100CB5880 /* RailFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F61A29E6147100CB5880 /* RailFinderTests.swift */; };
 		2D85F62529E6147100CB5880 /* RailFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62429E6147100CB5880 /* RailFinderUITests.swift */; };
 		2D85F62729E6147100CB5880 /* RailFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */; };
+		2DFE346029E7637700E07E52 /* StationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */; };
+		2DFE346229E763C800E07E52 /* StationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE346129E763C800E07E52 /* StationInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		2D85F60629E6147100CB5880 /* RailFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D85F60929E6147100CB5880 /* RailFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderApp.swift; sourceTree = "<group>"; };
-		2D85F60B29E6147100CB5880 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2D85F60D29E6147100CB5880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D85F61029E6147100CB5880 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D85F61629E6147100CB5880 /* RailFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +44,8 @@
 		2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D85F62429E6147100CB5880 /* RailFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITests.swift; sourceTree = "<group>"; };
 		2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewModel.swift; sourceTree = "<group>"; };
+		2DFE346129E763C800E07E52 /* StationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				2D85F60929E6147100CB5880 /* RailFinderApp.swift */,
-				2D85F60B29E6147100CB5880 /* ContentView.swift */,
+				2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */,
+				2DFE346129E763C800E07E52 /* StationInfoView.swift */,
 				2D85F60D29E6147100CB5880 /* Assets.xcassets */,
 				2D85F60F29E6147100CB5880 /* Preview Content */,
 			);
@@ -257,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D85F60C29E6147100CB5880 /* ContentView.swift in Sources */,
+				2DFE346029E7637700E07E52 /* StationInfoViewModel.swift in Sources */,
+				2DFE346229E763C800E07E52 /* StationInfoView.swift in Sources */,
 				2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -420,6 +424,7 @@
 				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリは現在地情報を使用して、最寄りの駅を検索します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +454,7 @@
 				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリは現在地情報を使用して、最寄りの駅を検索します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
