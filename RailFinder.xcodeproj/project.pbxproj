@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1C9D3629EA721100BE0781 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = 2D1C9D3529EA721100BE0781 /* Turf */; };
+		2D1C9D3829EA72E700BE0781 /* N02-20_Station.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */; };
+		2D1C9D3A29EA75D200BE0781 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3929EA75D200BE0781 /* LocationManager.swift */; };
+		2D1C9D4129EBBB1D00BE0781 /* Feature+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */; };
 		2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60929E6147100CB5880 /* RailFinderApp.swift */; };
 		2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F60D29E6147100CB5880 /* Assets.xcassets */; };
 		2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F61029E6147100CB5880 /* Preview Assets.xcassets */; };
 		2D85F61B29E6147100CB5880 /* RailFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F61A29E6147100CB5880 /* RailFinderTests.swift */; };
 		2D85F62529E6147100CB5880 /* RailFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62429E6147100CB5880 /* RailFinderUITests.swift */; };
 		2D85F62729E6147100CB5880 /* RailFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */; };
-		2DFE346029E7637700E07E52 /* StationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */; };
-		2DFE346229E763C800E07E52 /* StationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE346129E763C800E07E52 /* StationInfoView.swift */; };
+		2DFE346229E763C800E07E52 /* NearestStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE346129E763C800E07E52 /* NearestStationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "N02-20_Station.geojson"; sourceTree = "<group>"; };
+		2D1C9D3929EA75D200BE0781 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feature+Extensions.swift"; sourceTree = "<group>"; };
 		2D85F60629E6147100CB5880 /* RailFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D85F60929E6147100CB5880 /* RailFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderApp.swift; sourceTree = "<group>"; };
 		2D85F60D29E6147100CB5880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,8 +50,7 @@
 		2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D85F62429E6147100CB5880 /* RailFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITests.swift; sourceTree = "<group>"; };
 		2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewModel.swift; sourceTree = "<group>"; };
-		2DFE346129E763C800E07E52 /* StationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoView.swift; sourceTree = "<group>"; };
+		2DFE346129E763C800E07E52 /* NearestStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1C9D3629EA721100BE0781 /* Turf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				2D85F60929E6147100CB5880 /* RailFinderApp.swift */,
-				2DFE345F29E7637700E07E52 /* StationInfoViewModel.swift */,
-				2DFE346129E763C800E07E52 /* StationInfoView.swift */,
+				2DFE346129E763C800E07E52 /* NearestStationView.swift */,
+				2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */,
+				2D1C9D3929EA75D200BE0781 /* LocationManager.swift */,
+				2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */,
 				2D85F60D29E6147100CB5880 /* Assets.xcassets */,
 				2D85F60F29E6147100CB5880 /* Preview Content */,
 			);
@@ -146,6 +154,9 @@
 			dependencies = (
 			);
 			name = RailFinder;
+			packageProductDependencies = (
+				2D1C9D3529EA721100BE0781 /* Turf */,
+			);
 			productName = RailFinder;
 			productReference = 2D85F60629E6147100CB5880 /* RailFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +229,9 @@
 				Base,
 			);
 			mainGroup = 2D85F5FD29E6147100CB5880;
+			packageReferences = (
+				2D1C9D3429EA721100BE0781 /* XCRemoteSwiftPackageReference "turf-swift" */,
+			);
 			productRefGroup = 2D85F60729E6147100CB5880 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +250,7 @@
 			files = (
 				2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */,
 				2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */,
+				2D1C9D3829EA72E700BE0781 /* N02-20_Station.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,9 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DFE346029E7637700E07E52 /* StationInfoViewModel.swift in Sources */,
-				2DFE346229E763C800E07E52 /* StationInfoView.swift in Sources */,
+				2DFE346229E763C800E07E52 /* NearestStationView.swift in Sources */,
 				2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */,
+				2D1C9D4129EBBB1D00BE0781 /* Feature+Extensions.swift in Sources */,
+				2D1C9D3A29EA75D200BE0781 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailFinder/Preview Content\"";
@@ -437,6 +454,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailFinder/Preview Content\"";
@@ -467,6 +486,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watahiki.com.RailFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,6 +609,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2D1C9D3429EA721100BE0781 /* XCRemoteSwiftPackageReference "turf-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/turf-swift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D1C9D3529EA721100BE0781 /* Turf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D1C9D3429EA721100BE0781 /* XCRemoteSwiftPackageReference "turf-swift" */;
+			productName = Turf;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D85F5FE29E6147100CB5880 /* Project object */;
 }

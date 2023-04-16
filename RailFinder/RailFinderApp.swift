@@ -1,17 +1,26 @@
-//
-//  RailFinderApp.swift
-//  RailFinder
-//
-//  Created by 綿引慎也 on 2023/04/12.
-//
-
 import SwiftUI
+import os
+
+let logger = Logger(subsystem: "com.railfinder", category: "app")
 
 @main
 struct RailFinderApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+
     var body: some Scene {
         WindowGroup {
-            StationInfoView()
+            NearestStationView()
+        }
+        .onChange(of: scenePhase) { scene in
+            switch scene {
+            case .active:
+                logger.info("scenePhase: active")
+            case .inactive:
+                logger.info("scenePhase: inactive")
+            case .background:
+                logger.info("scenePhase: background")
+            @unknown default: break
+            }
         }
     }
 }
