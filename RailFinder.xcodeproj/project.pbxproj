@@ -37,6 +37,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2DD1849329EDFB0600F55104 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "N02-20_Station.geojson"; sourceTree = "<group>"; };
 		2D1C9D3929EA75D200BE0781 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -86,6 +99,7 @@
 				2D85F61929E6147100CB5880 /* RailFinderTests */,
 				2D85F62329E6147100CB5880 /* RailFinderUITests */,
 				2D85F60729E6147100CB5880 /* Products */,
+				2DD184A129EE000B00F55104 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +152,13 @@
 			path = RailFinderUITests;
 			sourceTree = "<group>";
 		};
+		2DD184A129EE000B00F55104 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +169,7 @@
 				2D85F60229E6147100CB5880 /* Sources */,
 				2D85F60329E6147100CB5880 /* Frameworks */,
 				2D85F60429E6147100CB5880 /* Resources */,
+				2DD1849329EDFB0600F55104 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -432,6 +454,7 @@
 		2D85F62B29E6147100CB5880 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -464,6 +487,7 @@
 		2D85F62C29E6147100CB5880 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";

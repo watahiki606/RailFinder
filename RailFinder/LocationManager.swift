@@ -2,21 +2,26 @@ import Foundation
 import CoreLocation
 import Turf
 
+struct AlertEntity {
+    let title: String
+    let message: String
+    let actionText: String
+}
+
+
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
     private let locationManager = CLLocationManager()
+    
+    @Published var alert: AlertEntity?
+    @Published var requireAuth = false
     @Published var lastLocation: CLLocation? {
         didSet {
-            logger.info("\(String(describing: self.lastLocation))")
             findNearestStation()
         }
     }
-    @Published var nearestStation: String = "" {
-        didSet {
-            logger.info("\(String(describing: self.nearestStation))")
-        }
-    }
-    @Published var isLoading: Bool = false
+    @Published var nearestStation: String = ""
+    
     var isUpdating: Bool = false
     
     private override init() {
@@ -26,29 +31,76 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.distanceFilter = kCLDistanceFilterNone
     }
     
-    func requestPermission() {
-        locationManager.requestWhenInUseAuthorization()
-    }
+    
     func startUpdatingLocation() {
-        isUpdating = true
-        locationManager.startUpdatingLocation()
+        logger.info("func start updating location")
+
+        logger.info("\(String(describing:self.locationManager.authorizationStatus))")
+        switch self.locationManager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            isUpdating = true
+            nearestStation = ""
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            logger.info("notDetermined")
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            logger.info("denied")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed. Please allow Settings - Privacy to retrieve the location of your app.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
+        case .restricted:
+            logger.info("restricted")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed by the constraints specified on the device.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
+            
+        @unknown default:
+            alert = AlertEntity(title: "Please allow Settings", message: "An unknown error has occurred.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
+        }
     }
     
     func stopUpdatingLocation() {
+        logger.info("func stop updating location")
         locationManager.stopUpdatingLocation()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    private func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) throws {
+        logger.info("changed Auth")
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
-            isUpdating = true
-            locationManager.startUpdatingLocation()
-        default:
-            break
+            self.startUpdatingLocation()
+        case .notDetermined:
+            logger.info("notDetermined")
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            logger.info("denied")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed. Please allow Settings - Privacy to retrieve the location of your app.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
+        case .restricted:
+            logger.info("restricted")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed by the constraints specified on the device.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
+            
+        @unknown default:
+            alert = AlertEntity(title: "Please allow Settings", message: "An unknown error has occurred.", actionText: "Go to settings")
+            DispatchQueue.main.async() {
+                self.requireAuth = true
+            }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        logger.info("func location manager")
         guard  isUpdating else { return }
         lastLocation = locations.last
         locationManager.stopUpdatingLocation()
@@ -57,15 +109,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func findNearestStation() {
-        logger.info("func find ")
-        isLoading = true
+        logger.info("func find nearest station")
         guard let location = lastLocation else {
-            isLoading = false
             return
         }
         guard let url = Bundle.main.url(forResource: "N02-20_Station", withExtension: "geojson") else {
-            logger.error("N02-20_Station.geojsonが見つかりません。")
-            isLoading = false
+            logger.error("N02-20_Station.geojson not found.")
             return
         }
         
@@ -76,27 +125,25 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let nearestFeature = searchNearestFeature(from: geoJson.features, at: location)
             
             if let nearestFeature = nearestFeature {
-                let stationName = nearestFeature.stationName ?? "不明な駅"
-                DispatchQueue.main.async {
-                    self.nearestStation = "最寄り駅: \(stationName)"
+                let stationName = nearestFeature.stationName ?? "Unknown station"
+                DispatchQueue.main.async() {
+                    self.nearestStation = "\(stationName)"
                 }
-                isLoading = false
             } else {
                 DispatchQueue.main.async {
-                    self.nearestStation = "最寄り駅が見つかりませんでした。"
+                    self.nearestStation = "Nearest station not found."
                 }
-                isLoading = false
             }
         } catch {
-            logger.error("エラー: \(error)")
+            logger.error("\(error)")
             DispatchQueue.main.async {
-                self.nearestStation = "エラーが発生しました。"
+                self.nearestStation = "An error occurred."
             }
-            isLoading = false
         }
     }
     
     func searchNearestFeature(from features: [Feature], at location: CLLocation) -> Feature? {
+        logger.info("func search nearest feature")
         let currentLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
         var minDistance = Double.greatestFiniteMagnitude

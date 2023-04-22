@@ -6,7 +6,8 @@ let logger = Logger(subsystem: "com.railfinder", category: "app")
 @main
 struct RailFinderApp: App {
     @Environment(\.scenePhase) private var scenePhase
-
+    @StateObject private var locationManager = LocationManager.shared
+    
     var body: some Scene {
         WindowGroup {
             NearestStationView()
@@ -15,6 +16,7 @@ struct RailFinderApp: App {
             switch scene {
             case .active:
                 logger.info("scenePhase: active")
+                locationManager.startUpdatingLocation()
             case .inactive:
                 logger.info("scenePhase: inactive")
             case .background:
