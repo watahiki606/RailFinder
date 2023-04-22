@@ -19,6 +19,11 @@
 		2D27716429F3B60F009855F7 /* Railfinder_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27716329F3B60F009855F7 /* Railfinder_Watch_AppUITests.swift */; };
 		2D27716629F3B60F009855F7 /* Railfinder_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27716529F3B60F009855F7 /* Railfinder_Watch_AppUITestsLaunchTests.swift */; };
 		2D27716929F3B60F009855F7 /* Railfinder Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2D27714629F3B60E009855F7 /* Railfinder Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2D27717329F3C360009855F7 /* NearestStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE346129E763C800E07E52 /* NearestStationView.swift */; };
+		2D27717429F3C365009855F7 /* Feature+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */; };
+		2D27717529F3C369009855F7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3929EA75D200BE0781 /* LocationManager.swift */; };
+		2D27717629F3C36E009855F7 /* N02-20_Station.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */; };
+		2D27717829F3C387009855F7 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = 2D27717729F3C387009855F7 /* Turf */; };
 		2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F60929E6147100CB5880 /* RailFinderApp.swift */; };
 		2D85F60E29E6147100CB5880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F60D29E6147100CB5880 /* Assets.xcassets */; };
 		2D85F61129E6147100CB5880 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D85F61029E6147100CB5880 /* Preview Assets.xcassets */; };
@@ -111,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D27717829F3C387009855F7 /* Turf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +284,9 @@
 			dependencies = (
 			);
 			name = "Railfinder Watch App";
+			packageProductDependencies = (
+				2D27717729F3C387009855F7 /* Turf */,
+			);
 			productName = "Railfinder Watch App";
 			productReference = 2D27714629F3B60E009855F7 /* Railfinder Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -443,6 +452,7 @@
 			files = (
 				2D27715029F3B60F009855F7 /* Preview Assets.xcassets in Resources */,
 				2D27714D29F3B60F009855F7 /* Assets.xcassets in Resources */,
+				2D27717629F3C36E009855F7 /* N02-20_Station.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +503,9 @@
 			files = (
 				2D27714B29F3B60E009855F7 /* ContentView.swift in Sources */,
 				2D27714929F3B60E009855F7 /* RailfinderApp.swift in Sources */,
+				2D27717529F3C369009855F7 /* LocationManager.swift in Sources */,
+				2D27717429F3C365009855F7 /* Feature+Extensions.swift in Sources */,
+				2D27717329F3C360009855F7 /* NearestStationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +598,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Railfinder;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリは現在地情報を使用して、最寄りの駅を検索します。";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.watahiki.RailFinder;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -616,6 +630,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Railfinder;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリは現在地情報を使用して、最寄りの駅を検索します。";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.watahiki.RailFinder;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1053,6 +1068,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2D1C9D3529EA721100BE0781 /* Turf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D1C9D3429EA721100BE0781 /* XCRemoteSwiftPackageReference "turf-swift" */;
+			productName = Turf;
+		};
+		2D27717729F3C387009855F7 /* Turf */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D1C9D3429EA721100BE0781 /* XCRemoteSwiftPackageReference "turf-swift" */;
 			productName = Turf;

@@ -26,7 +26,7 @@ struct NearestStationView: View {
             }, label: {
                 HStack {
                     Image(systemName: "train.side.front.car")
-                    Text("Search nearest station")
+                    Text("Search")
                 }
                 .background(Color.blue)
                 .foregroundColor(.white)
@@ -35,7 +35,7 @@ struct NearestStationView: View {
             .padding()
             .buttonStyle(BorderlessButtonStyle())
             .foregroundColor(Color.white)
-            .background(Color.accentColor)
+            .background(Color.blue)
             .cornerRadius(8)
             .padding()
             Spacer()
@@ -64,6 +64,10 @@ struct NearestStationView: View {
 struct NearestStationView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NearestStationView()
+        let shared = LocationManager.shared
+        shared.nearestStation = "京都"
+        return Group {
+            NearestStationView()
+        }
     }
 }
