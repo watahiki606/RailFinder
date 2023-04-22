@@ -10,7 +10,10 @@ struct NearestStationView: View {
             Spacer()
             if !locationManager.nearestStation.isEmpty {
                 Text(locationManager.nearestStation)
+#if os(iOS)
                     .textSelection(.enabled)
+#else
+#endif
                     .padding()
             } else if !locationManager.requireAuth {
                 ProgressView()
@@ -43,9 +46,12 @@ struct NearestStationView: View {
             presenting: locationManager.alert
         ) { entity in
             Button(entity.actionText) {
+#if os(iOS)
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url)
                 }
+#else
+#endif
             }
         } message: { entity in
             Text(entity.message)

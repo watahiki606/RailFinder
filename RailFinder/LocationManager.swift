@@ -12,6 +12,15 @@ struct AlertEntity {
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
     private let locationManager = CLLocationManager()
+    var actionText: String {
+        get {
+#if os(iOS)
+            return "Go to settings"
+#else
+            return "OK"
+#endif
+        }
+    }
     
     @Published var alert: AlertEntity?
     @Published var requireAuth = false
@@ -34,7 +43,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func startUpdatingLocation() {
         logger.info("func start updating location")
-
+        
         logger.info("\(String(describing:self.locationManager.authorizationStatus))")
         switch self.locationManager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
@@ -46,19 +55,19 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
         case .denied:
             logger.info("denied")
-            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed. Please allow Settings - Privacy to retrieve the location of your app.", actionText: "Go to settings")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed. Please allow Settings - Privacy to retrieve the location of your app.", actionText: actionText)
             DispatchQueue.main.async() {
                 self.requireAuth = true
             }
         case .restricted:
             logger.info("restricted")
-            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed by the constraints specified on the device.", actionText: "Go to settings")
+            alert = AlertEntity(title: "Please allow Settings", message: "Location information is not allowed by the constraints specified on the device.", actionText: actionText)
             DispatchQueue.main.async() {
                 self.requireAuth = true
             }
             
         @unknown default:
-            alert = AlertEntity(title: "Please allow Settings", message: "An unknown error has occurred.", actionText: "Go to settings")
+            alert = AlertEntity(title: "Please allow Settings", message: "An unknown error has occurred.", actionText: actionText)
             DispatchQueue.main.async() {
                 self.requireAuth = true
             }
