@@ -10,6 +10,7 @@ struct NearestStationView: View {
             Spacer()
             if !locationManager.nearestStation.isEmpty {
                 Text(locationManager.nearestStation)
+                    .textSelection(.enabled)
                     .padding()
             } else if !locationManager.requireAuth {
                 ProgressView()
