@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 import Turf
+import WatchConnectivity
 
 struct AlertEntity {
     let title: String
@@ -29,7 +30,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             findNearestStation()
         }
     }
-    @Published var nearestStation: String = ""
+    @Published var nearestStation: String = "" {
+        didSet {
+            WatchCommunication.shared.sendNearestStation(nearestStation)
+        }
+    }
     
     var isUpdating: Bool = false
     
@@ -114,7 +119,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         lastLocation = locations.last
         locationManager.stopUpdatingLocation()
         isUpdating = false
-        
     }
     
     func findNearestStation() {

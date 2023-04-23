@@ -7,10 +7,13 @@ let logger = Logger(subsystem: "com.railfinder", category: "app")
 struct RailFinderApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var locationManager = LocationManager.shared
+    @StateObject private var watchCommunication = WatchCommunication()
+
     
     var body: some Scene {
         WindowGroup {
             NearestStationView()
+                .environmentObject(watchCommunication)
         }
         .onChange(of: scenePhase) { scene in
             switch scene {

@@ -1,5 +1,8 @@
 import SwiftUI
 import CoreLocation
+import WatchConnectivity
+
+
 struct NearestStationView: View {
     @StateObject private var locationManager = LocationManager.shared
     
@@ -40,6 +43,7 @@ struct NearestStationView: View {
             .padding()
             Spacer()
         }
+        
         .alert(
             locationManager.alert?.title ?? "",
             isPresented: $locationManager.requireAuth,
@@ -59,6 +63,60 @@ struct NearestStationView: View {
         
     }
 }
+
+
+class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
+    private let  locationManager = LocationManager.shared
+    static let shared = WatchCommunication()
+    
+    func sendNearestStation(_ station: String) {
+           if WCSession.default.activationState == .activated {
+               let message = ["nearestStation": station]
+               WCSession.default.sendMessage(message, replyHandler: { response in
+                   
+               }, errorHandler: { error in
+                   logger.info("Error sending message: \(error.localizedDescription)")
+               })
+           } else {
+               logger.info("WCSession is not activated.")
+           }
+       }
+    
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    override init() {
+        super.init()
+        if WCSession.default.activationState != .activated {
+                   WCSession.default.delegate = self
+                   WCSession.default.activate()
+               }
+    }
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+                   logger.info("WCSession activation failed with error: \(error.localizedDescription)")
+               } else {
+                   logger.info("WCSession activated with state: \(activationState.rawValue)")
+               }
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        if let action = message["action"] as? String, action == "startUpdatingLocation" {
+            LocationManager.shared.startUpdatingLocation()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                replyHandler(["nearestStation": LocationManager.shared.nearestStation])
+            }
+        }
+    }
+}
+
 
 
 struct NearestStationView_Previews: PreviewProvider {
