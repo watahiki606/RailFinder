@@ -5,6 +5,10 @@ let logger = Logger(subsystem: "com.railfinder", category: "app")
 
 @main
 struct RailFinderApp: App {
+    init() {
+          checkAppVersionAndUpdateCacheIfNeeded()
+      }
+    
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var locationManager = LocationManager.shared
     @StateObject private var watchCommunication = WatchCommunication()
@@ -28,4 +32,17 @@ struct RailFinderApp: App {
             }
         }
     }
+    
+    func checkAppVersionAndUpdateCacheIfNeeded() {
+          let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+          let savedAppVersion = UserDefaults.standard.string(forKey: "appVersion")
+
+          if savedAppVersion != currentAppVersion {
+              // アプリがアップデートされた場合、キャッシュをクリア
+              GeoJSONCache.shared.clearCache()
+
+              // 現在のバージョン情報を UserDefaults に保存
+              UserDefaults.standard.setValue(currentAppVersion, forKey: "appVersion")
+          }
+      }
 }

@@ -25,6 +25,7 @@
 		2D85F61B29E6147100CB5880 /* RailFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F61A29E6147100CB5880 /* RailFinderTests.swift */; };
 		2D85F62529E6147100CB5880 /* RailFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62429E6147100CB5880 /* RailFinderUITests.swift */; };
 		2D85F62729E6147100CB5880 /* RailFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */; };
+		2DF8AA8629F5104900C0E5B2 /* GeoJsonCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8AA8529F5104900C0E5B2 /* GeoJsonCache.swift */; };
 		2DFE346229E763C800E07E52 /* NearestStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE346129E763C800E07E52 /* NearestStationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		2D85F62029E6147100CB5880 /* RailFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D85F62429E6147100CB5880 /* RailFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITests.swift; sourceTree = "<group>"; };
 		2D85F62629E6147100CB5880 /* RailFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2DF8AA8529F5104900C0E5B2 /* GeoJsonCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJsonCache.swift; sourceTree = "<group>"; };
 		2DFE346129E763C800E07E52 /* NearestStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +228,7 @@
 				2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */,
 				2D85F60D29E6147100CB5880 /* Assets.xcassets */,
 				2D85F60F29E6147100CB5880 /* Preview Content */,
+				2DF8AA8529F5104900C0E5B2 /* GeoJsonCache.swift */,
 			);
 			path = RailFinder;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				2DFE346229E763C800E07E52 /* NearestStationView.swift in Sources */,
 				2D85F60A29E6147100CB5880 /* RailFinderApp.swift in Sources */,
 				2D1C9D4129EBBB1D00BE0781 /* Feature+Extensions.swift in Sources */,
+				2DF8AA8629F5104900C0E5B2 /* GeoJsonCache.swift in Sources */,
 				2D1C9D3A29EA75D200BE0781 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
