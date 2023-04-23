@@ -1,26 +1,39 @@
-//
-//  ContentView.swift
-//  Railfinder Watch App
-//
-//  Created by 綿引慎也 on 2023/04/22.
-//
-
 import SwiftUI
 import WatchConnectivity
 
 
 struct ContentView: View {
     @ObservedObject var watchCommunication = WatchCommunication()
-
+    
     var body: some View {
         VStack {
+            Spacer()
+            if !watchCommunication.nearestStation.isEmpty {
+                Text(watchCommunication.nearestStation)
+                    .padding()
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .padding()
+            }
             Button(action: {
                 watchCommunication.sendMessageToiPhone()
-            }) {
-                Text("search")
-            }
-
-            Text(watchCommunication.nearestStation)
+            }, label: {
+                HStack {
+                    Image(systemName: "train.side.front.car")
+                    Text("Search")
+                }
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .font(.headline)
+            })
+            .padding()
+            .buttonStyle(BorderlessButtonStyle())
+            .foregroundColor(Color.white)
+            .background(Color.blue)
+            .cornerRadius(8)
+            .padding()
+            Spacer()
         }
     }
 }
@@ -28,36 +41,36 @@ struct ContentView: View {
 
 class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
     @Published var nearestStation: String = ""
-
+    
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-                   logger.info("WCSession activation failed with error: \(error.localizedDescription)")
-               } else {
-                   logger.info("WCSession activated with state: \(activationState.rawValue)")
-               }
+            logger.info("WCSession activation failed with error: \(error.localizedDescription)")
+        } else {
+            logger.info("WCSession activated with state: \(activationState.rawValue)")
+        }
         if activationState != .activated {
-                   logger.info("WCSession activation failed: \(String(describing: error?.localizedDescription))")
-               }
+            logger.info("WCSession activation failed: \(String(describing: error?.localizedDescription))")
+        }
     }
     
-
+    
     override init() {
-          super.init()
+        super.init()
         if WCSession.default.activationState != .activated {
-                   WCSession.default.delegate = self
-                   WCSession.default.activate()
-               }
-      }
-
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
+    }
+    
     func sendMessageToiPhone() {
         if WCSession.default.isReachable {
             nearestStation = "Loading..."
             let message = ["action": "startUpdatingLocation"]
             WCSession.default.sendMessage(message, replyHandler: { response in
                 DispatchQueue.main.async {
-                    if let result = response["nearestStation"] as? String {
-                        self.nearestStation = result
+                    if let nearestStation = response["nearestStation"] as? String {
+                        self.nearestStation = nearestStation
                     }
                 }
             }, errorHandler: { error in
@@ -67,7 +80,7 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
             logger.info("iPhone is not reachable.")
         }
     }
-
+    
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         if let nearestStation = message["nearestStation"] as? String {
             DispatchQueue.main.async {
@@ -82,10 +95,8 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
         }
     }
     
-    // WCSessionDelegate methods
-    // ...
     func sessionReachabilityDidChange(_ session: WCSession) {
-        // ここにコードを追加することもできますが、このデリゲートメソッドは空である必要はありません。
+        
     }
 }
 

@@ -15,11 +15,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     var actionText: String {
         get {
-#if os(iOS)
             return "Go to settings"
-#else
-            return "OK"
-#endif
         }
     }
     

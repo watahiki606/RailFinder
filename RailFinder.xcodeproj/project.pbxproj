@@ -11,7 +11,7 @@
 		2D1C9D3829EA72E700BE0781 /* N02-20_Station.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */; };
 		2D1C9D3A29EA75D200BE0781 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3929EA75D200BE0781 /* LocationManager.swift */; };
 		2D1C9D4129EBBB1D00BE0781 /* Feature+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */; };
-		2D27714929F3B60E009855F7 /* RailfinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27714829F3B60E009855F7 /* RailfinderApp.swift */; };
+		2D27714929F3B60E009855F7 /* RailfinderWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27714829F3B60E009855F7 /* RailfinderWatchApp.swift */; };
 		2D27714B29F3B60E009855F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D27714A29F3B60E009855F7 /* ContentView.swift */; };
 		2D27714D29F3B60F009855F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D27714C29F3B60F009855F7 /* Assets.xcassets */; };
 		2D27715029F3B60F009855F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D27714F29F3B60F009855F7 /* Preview Assets.xcassets */; };
@@ -85,7 +85,7 @@
 		2D1C9D3929EA75D200BE0781 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feature+Extensions.swift"; sourceTree = "<group>"; };
 		2D27714629F3B60E009855F7 /* Railfinder Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Railfinder Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D27714829F3B60E009855F7 /* RailfinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailfinderApp.swift; sourceTree = "<group>"; };
+		2D27714829F3B60E009855F7 /* RailfinderWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailfinderWatchApp.swift; sourceTree = "<group>"; };
 		2D27714A29F3B60E009855F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2D27714C29F3B60F009855F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D27714F29F3B60F009855F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		2D27714729F3B60E009855F7 /* Railfinder Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				2D27714829F3B60E009855F7 /* RailfinderApp.swift */,
+				2D27714829F3B60E009855F7 /* RailfinderWatchApp.swift */,
 				2D27714A29F3B60E009855F7 /* ContentView.swift */,
 				2D27714C29F3B60F009855F7 /* Assets.xcassets */,
 				2D27714E29F3B60F009855F7 /* Preview Content */,
@@ -494,7 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D27714B29F3B60E009855F7 /* ContentView.swift in Sources */,
-				2D27714929F3B60E009855F7 /* RailfinderApp.swift in Sources */,
+				2D27714929F3B60E009855F7 /* RailfinderWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

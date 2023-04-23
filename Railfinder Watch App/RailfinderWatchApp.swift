@@ -7,7 +7,7 @@ let logger = Logger(subsystem: "com.railfinder", category: "app")
 
 
 @main
-struct Railfinder_Watch_AppApp: App {
+struct RailfinderWatchApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var watchCommunication = WatchCommunication()
 

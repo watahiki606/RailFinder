@@ -13,17 +13,13 @@ struct NearestStationView: View {
             Spacer()
             if !locationManager.nearestStation.isEmpty {
                 Text(locationManager.nearestStation)
-#if os(iOS)
                     .textSelection(.enabled)
-#else
-#endif
                     .padding()
             } else if !locationManager.requireAuth {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
             }
-            
             Button(action: {
                 locationManager.startUpdatingLocation()
             }, label: {
@@ -43,24 +39,19 @@ struct NearestStationView: View {
             .padding()
             Spacer()
         }
-        
         .alert(
             locationManager.alert?.title ?? "",
             isPresented: $locationManager.requireAuth,
             presenting: locationManager.alert
         ) { entity in
             Button(entity.actionText) {
-#if os(iOS)
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url)
                 }
-#else
-#endif
             }
         } message: { entity in
             Text(entity.message)
         }
-        
     }
 }
 
@@ -70,49 +61,43 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
     static let shared = WatchCommunication()
     
     func sendNearestStation(_ station: String) {
-           if WCSession.default.activationState == .activated {
-               let message = ["nearestStation": station]
-               WCSession.default.sendMessage(message, replyHandler: { response in
-                   
-               }, errorHandler: { error in
-                   logger.info("Error sending message: \(error.localizedDescription)")
-               })
-           } else {
-               logger.info("WCSession is not activated.")
-           }
-       }
-    
-
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        
+        if WCSession.default.activationState == .activated {
+            let message = ["nearestStation": station]
+            WCSession.default.sendMessage(message, replyHandler: { response in
+                
+            }, errorHandler: { error in
+                logger.info("Error sending message: \(error.localizedDescription)")
+            })
+        } else {
+            logger.info("WCSession is not activated.")
+        }
     }
     
-    func sessionDidDeactivate(_ session: WCSession) {
-        
-    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    
+    func sessionDidDeactivate(_ session: WCSession) {}
     
     override init() {
         super.init()
         if WCSession.default.activationState != .activated {
-                   WCSession.default.delegate = self
-                   WCSession.default.activate()
-               }
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
     }
-
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-                   logger.info("WCSession activation failed with error: \(error.localizedDescription)")
-               } else {
-                   logger.info("WCSession activated with state: \(activationState.rawValue)")
-               }
+            logger.info("WCSession activation failed with error: \(error.localizedDescription)")
+        } else {
+            logger.info("WCSession activated with state: \(activationState.rawValue)")
+        }
     }
-
+    
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         if let action = message["action"] as? String, action == "startUpdatingLocation" {
             LocationManager.shared.startUpdatingLocation()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                replyHandler(["nearestStation": LocationManager.shared.nearestStation])
-            }
+            replyHandler(["nearestStation": LocationManager.shared.nearestStation])
         }
     }
 }
