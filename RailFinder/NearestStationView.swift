@@ -64,7 +64,7 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
         if WCSession.default.activationState == .activated {
             let message = ["nearestStation": station]
             WCSession.default.sendMessage(message, replyHandler: { response in
-                
+                logger.info("iPhone received response")
             }, errorHandler: { error in
                 logger.info("Error sending message: \(error.localizedDescription)")
             })
@@ -97,7 +97,7 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         if let action = message["action"] as? String, action == "startUpdatingLocation" {
             LocationManager.shared.startUpdatingLocation()
-            replyHandler(["nearestStation": LocationManager.shared.nearestStation])
+            replyHandler(["execute": "success"])
         }
     }
 }

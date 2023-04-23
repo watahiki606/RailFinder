@@ -5,34 +5,39 @@ import WatchConnectivity
 struct ContentView: View {
     @ObservedObject var watchCommunication = WatchCommunication()
     
+    
     var body: some View {
         VStack {
             Spacer()
             if !watchCommunication.nearestStation.isEmpty {
                 Text(watchCommunication.nearestStation)
                     .padding()
-            } else {
+            }
+            if watchCommunication.isSearching {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
-            }
-            Button(action: {
-                watchCommunication.sendMessageToiPhone()
-            }, label: {
-                HStack {
-                    Image(systemName: "train.side.front.car")
-                    Text("Search")
-                }
+            } else {
+                Button(action: {
+                    watchCommunication.nearestStation = ""
+                    watchCommunication.isSearching = true
+                    watchCommunication.sendMessageToiPhone()
+                }, label: {
+                    HStack {
+                        Image(systemName: "train.side.front.car")
+                        Text("Search")
+                    }
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .font(.headline)
+                })
+                .padding()
+                .buttonStyle(BorderlessButtonStyle())
+                .foregroundColor(Color.white)
                 .background(Color.blue)
-                .foregroundColor(.white)
-                .font(.headline)
-            })
-            .padding()
-            .buttonStyle(BorderlessButtonStyle())
-            .foregroundColor(Color.white)
-            .background(Color.blue)
-            .cornerRadius(8)
-            .padding()
+                .cornerRadius(8)
+                .padding()
+            }
             Spacer()
         }
     }
@@ -40,8 +45,17 @@ struct ContentView: View {
 
 
 class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
-    @Published var nearestStation: String = ""
-    
+    @Published var nearestStation: String = "" {
+        didSet {
+            if !nearestStation.isEmpty {
+                DispatchQueue.main.async {
+                    self.isSearching = false
+                }
+            }
+        }
+    }
+
+    @Published var isSearching = false
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
@@ -65,20 +79,17 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
     
     func sendMessageToiPhone() {
         if WCSession.default.isReachable {
-            nearestStation = "Loading..."
+            
             let message = ["action": "startUpdatingLocation"]
             WCSession.default.sendMessage(message, replyHandler: { response in
-                DispatchQueue.main.async {
-                    if let nearestStation = response["nearestStation"] as? String {
-                        self.nearestStation = nearestStation
-                    }
-                }
+                logger.info("watch received response")
             }, errorHandler: { error in
                 logger.info("Error sending message: \(error.localizedDescription)")
             })
         } else {
             logger.info("iPhone is not reachable.")
         }
+       
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
@@ -102,7 +113,8 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
 
 
 struct ContentView_Previews: PreviewProvider {
+    static var watchCommunication = WatchCommunication()
     static var previews: some View {
-        ContentView()
+        ContentView(watchCommunication: watchCommunication)
     }
 }
