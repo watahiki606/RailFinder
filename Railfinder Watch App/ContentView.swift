@@ -17,27 +17,28 @@ struct ContentView: View {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
-            } else {
-                Button(action: {
-                    watchCommunication.nearestStation = ""
-                    watchCommunication.isSearching = true
-                    watchCommunication.sendMessageToiPhone()
-                }, label: {
-                    HStack {
-                        Image(systemName: "train.side.front.car")
-                        Text("Search")
-                    }
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .font(.headline)
-                })
-                .padding()
-                .buttonStyle(BorderlessButtonStyle())
-                .foregroundColor(Color.white)
-                .background(Color.blue)
-                .cornerRadius(8)
-                .padding()
             }
+            Button(action: {
+                watchCommunication.nearestStation = ""
+                watchCommunication.isSearching = true
+                watchCommunication.sendMessageToiPhone()
+            }, label: {
+                HStack {
+                    Image(systemName: "train.side.front.car")
+                    Text("Search")
+                }
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .font(.headline)
+            })
+            .disabled(watchCommunication.isSearching)
+            .padding()
+            .buttonStyle(BorderlessButtonStyle())
+            .foregroundColor(Color.white)
+            .background(Color.blue)
+            .cornerRadius(8)
+            .padding()
+            
             Spacer()
         }
     }
@@ -54,7 +55,7 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
             }
         }
     }
-
+    
     @Published var isSearching = false
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -78,22 +79,23 @@ class WatchCommunication: NSObject, WCSessionDelegate, ObservableObject {
     }
     
     func sendMessageToiPhone() {
+        logger.info("watch send message to iPhone")
         if WCSession.default.isReachable {
-            
             let message = ["action": "startUpdatingLocation"]
             WCSession.default.sendMessage(message, replyHandler: { response in
-                logger.info("watch received response")
+                logger.info("watch received \(response)")
             }, errorHandler: { error in
                 logger.info("Error sending message: \(error.localizedDescription)")
             })
         } else {
             logger.info("iPhone is not reachable.")
         }
-       
+        
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         if let nearestStation = message["nearestStation"] as? String {
+            logger.info("watch received nearestStation: \(nearestStation)")
             DispatchQueue.main.async {
                 self.nearestStation = nearestStation
             }
