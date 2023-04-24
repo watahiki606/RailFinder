@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 import Turf
+import WatchConnectivity
 
 struct AlertEntity {
     let title: String
@@ -14,11 +15,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     var actionText: String {
         get {
-#if os(iOS)
             return "Go to settings"
-#else
-            return "OK"
-#endif
         }
     }
     
@@ -29,7 +26,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             findNearestStation()
         }
     }
-    @Published var nearestStation: String = ""
+    @Published var nearestStation: String = "" {
+        didSet {
+            WatchCommunication.shared.sendNearestStation(nearestStation)
+        }
+    }
     
     var isUpdating: Bool = false
     
@@ -114,7 +115,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         lastLocation = locations.last
         locationManager.stopUpdatingLocation()
         isUpdating = false
-        
     }
     
     func findNearestStation() {
@@ -122,17 +122,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = lastLocation else {
             return
         }
-        guard let url = Bundle.main.url(forResource: "N02-20_Station", withExtension: "geojson") else {
-            logger.error("N02-20_Station.geojson not found.")
-            return
-        }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let geoJson = try JSONDecoder().decode(FeatureCollection.self, from: data)
-            
-            let nearestFeature = searchNearestFeature(from: geoJson.features, at: location)
-            
+
+        // キャッシュにデータを保存
+        GeoJSONCache.shared.loadGeoJSON(from: "N02-20_Station")
+
+        // キャッシュからデータを取得
+        if let cachedGeoJSONData = GeoJSONCache.shared.cachedGeoJSON {
+            let nearestFeature = searchNearestFeature(from: cachedGeoJSONData.features, at: location)
+
             if let nearestFeature = nearestFeature {
                 let stationName = nearestFeature.stationName ?? "Unknown station"
                 DispatchQueue.main.async() {
@@ -143,13 +140,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     self.nearestStation = "Nearest station not found."
                 }
             }
-        } catch {
-            logger.error("\(error)")
+        } else {
+            logger.error("An error occurred while loading GeoJSON data.")
             DispatchQueue.main.async {
                 self.nearestStation = "An error occurred."
             }
         }
     }
+
     
     func searchNearestFeature(from features: [Feature], at location: CLLocation) -> Feature? {
         logger.info("func search nearest feature")
