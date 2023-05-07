@@ -6,29 +6,26 @@ class GeoJSONCache {
     static let shared = GeoJSONCache()
     private(set) var cachedGeoJSON: FeatureCollection?
     
-    private init() {}
+    private init() {
+        self.loadGeoJSON()
+    }
     
     func clearCache() {
         cachedGeoJSON = nil
     }
     
-    func loadGeoJSON(from fileName: String) {
-        guard cachedGeoJSON == nil else {
-            return
-        }
-        
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "geojson") else {
-            logger.info("File not found.")
-            return
-        }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let geoJson = try JSONDecoder().decode(FeatureCollection.self, from: data)
-            cachedGeoJSON = geoJson
-            logger.info("loaded from geoJSON")
-        } catch {
-            logger.info("Error loading geoJSON: \(error)")
-        }
-    }
+    func loadGeoJSON() {
+           guard let url = Bundle.main.url(forResource: "N02-20_Station", withExtension: "geojson") else {
+               logger.info("N02-20_Station.geojson not found.")
+               return
+           }
+
+           do {
+               let data = try Data(contentsOf: url)
+               let geoJson = try JSONDecoder().decode(FeatureCollection.self, from: data)
+               cachedGeoJSON = geoJson
+           } catch {
+               logger.info("Error loading GeoJSON: \(error)")
+           }
+       }
 }

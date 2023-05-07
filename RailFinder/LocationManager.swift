@@ -122,32 +122,27 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = lastLocation else {
             return
         }
-
-        // キャッシュにデータを保存
-        GeoJSONCache.shared.loadGeoJSON(from: "N02-20_Station")
-
-        // キャッシュからデータを取得
-        if let cachedGeoJSONData = GeoJSONCache.shared.cachedGeoJSON {
-            let nearestFeature = searchNearestFeature(from: cachedGeoJSONData.features, at: location)
-
-            if let nearestFeature = nearestFeature {
-                let stationName = nearestFeature.stationName ?? "Unknown station"
-                DispatchQueue.main.async() {
-                    self.nearestStation = "\(stationName)"
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.nearestStation = "Nearest station not found."
-                }
+        
+        guard let cachedGeoJSON = GeoJSONCache.shared.cachedGeoJSON else {
+            logger.error("GeoJSONCache is empty.")
+            return
+        }
+        
+        let nearestFeature = searchNearestFeature(from: cachedGeoJSON.features, at: location)
+        
+        if let nearestFeature = nearestFeature {
+            let stationName = nearestFeature.stationName ?? "Unknown station"
+            DispatchQueue.main.async() {
+                self.nearestStation = "\(stationName)"
             }
         } else {
-            logger.error("An error occurred while loading GeoJSON data.")
             DispatchQueue.main.async {
-                self.nearestStation = "An error occurred."
+                self.nearestStation = "Nearest station not found."
             }
         }
     }
-
+    
+    
     
     func searchNearestFeature(from features: [Feature], at location: CLLocation) -> Feature? {
         logger.info("func search nearest feature")
