@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DC79D562A2480560020E66B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC79D0C2A246D3B0020E66B /* WidgetKit.framework */; };
+		0DC79D572A2480560020E66B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC79D0E2A246D3B0020E66B /* SwiftUI.framework */; };
+		0DC79D5A2A2480560020E66B /* RailFinderWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC79D592A2480560020E66B /* RailFinderWidgetBundle.swift */; };
+		0DC79D5C2A2480560020E66B /* RailFinderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC79D5B2A2480560020E66B /* RailFinderWidget.swift */; };
+		0DC79D5E2A2480560020E66B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC79D5D2A2480560020E66B /* Assets.xcassets */; };
+		0DC79D622A2480560020E66B /* RailFinderWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0DC79D552A2480560020E66B /* RailFinderWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2D1C9D3629EA721100BE0781 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = 2D1C9D3529EA721100BE0781 /* Turf */; };
 		2D1C9D3829EA72E700BE0781 /* N02-20_Station.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */; };
 		2D1C9D3A29EA75D200BE0781 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C9D3929EA75D200BE0781 /* LocationManager.swift */; };
@@ -30,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0DC79D602A2480560020E66B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D85F5FE29E6147100CB5880 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DC79D542A2480560020E66B;
+			remoteInfo = RailFinderWidgetExtension;
+		};
 		2D27715629F3B60F009855F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2D85F5FE29E6147100CB5880 /* Project object */;
@@ -68,6 +81,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0DC79D1F2A246D3B0020E66B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DC79D502A2473010020E66B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0DC79D622A2480560020E66B /* RailFinderWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2DD1849329EDFB0600F55104 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,6 +116,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DC79D0C2A246D3B0020E66B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0DC79D0E2A246D3B0020E66B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0DC79D552A2480560020E66B /* RailFinderWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RailFinderWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DC79D592A2480560020E66B /* RailFinderWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderWidgetBundle.swift; sourceTree = "<group>"; };
+		0DC79D5B2A2480560020E66B /* RailFinderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailFinderWidget.swift; sourceTree = "<group>"; };
+		0DC79D5D2A2480560020E66B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DC79D5F2A2480560020E66B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D1C9D3729EA72E700BE0781 /* N02-20_Station.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "N02-20_Station.geojson"; sourceTree = "<group>"; };
 		2D1C9D3929EA75D200BE0781 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2D1C9D4029EBBB1D00BE0781 /* Feature+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feature+Extensions.swift"; sourceTree = "<group>"; };
@@ -109,6 +150,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0DC79D522A2480560020E66B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC79D572A2480560020E66B /* SwiftUI.framework in Frameworks */,
+				0DC79D562A2480560020E66B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D27714329F3B60E009855F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +205,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DC79D582A2480560020E66B /* RailFinderWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0DC79D592A2480560020E66B /* RailFinderWidgetBundle.swift */,
+				0DC79D5B2A2480560020E66B /* RailFinderWidget.swift */,
+				0DC79D5D2A2480560020E66B /* Assets.xcassets */,
+				0DC79D5F2A2480560020E66B /* Info.plist */,
+			);
+			path = RailFinderWidget;
+			sourceTree = "<group>";
+		};
 		2D27714729F3B60E009855F7 /* Railfinder Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +261,7 @@
 				2D27714729F3B60E009855F7 /* Railfinder Watch App */,
 				2D27715829F3B60F009855F7 /* Railfinder Watch AppTests */,
 				2D27716229F3B60F009855F7 /* Railfinder Watch AppUITests */,
+				0DC79D582A2480560020E66B /* RailFinderWidget */,
 				2D85F60729E6147100CB5880 /* Products */,
 				2DD184A129EE000B00F55104 /* Frameworks */,
 			);
@@ -214,6 +276,7 @@
 				2D27714629F3B60E009855F7 /* Railfinder Watch App.app */,
 				2D27715529F3B60F009855F7 /* Railfinder Watch AppTests.xctest */,
 				2D27715F29F3B60F009855F7 /* Railfinder Watch AppUITests.xctest */,
+				0DC79D552A2480560020E66B /* RailFinderWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +324,8 @@
 		2DD184A129EE000B00F55104 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DC79D0C2A246D3B0020E66B /* WidgetKit.framework */,
+				0DC79D0E2A246D3B0020E66B /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +333,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0DC79D542A2480560020E66B /* RailFinderWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DC79D632A2480560020E66B /* Build configuration list for PBXNativeTarget "RailFinderWidgetExtension" */;
+			buildPhases = (
+				0DC79D512A2480560020E66B /* Sources */,
+				0DC79D522A2480560020E66B /* Frameworks */,
+				0DC79D532A2480560020E66B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RailFinderWidgetExtension;
+			productName = RailFinderWidgetExtension;
+			productReference = 0DC79D552A2480560020E66B /* RailFinderWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2D27714529F3B60E009855F7 /* Railfinder Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D27716A29F3B60F009855F7 /* Build configuration list for PBXNativeTarget "Railfinder Watch App" */;
@@ -275,6 +357,7 @@
 				2D27714229F3B60E009855F7 /* Sources */,
 				2D27714329F3B60E009855F7 /* Frameworks */,
 				2D27714429F3B60E009855F7 /* Resources */,
+				0DC79D1F2A246D3B0020E66B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -331,11 +414,13 @@
 				2D85F60329E6147100CB5880 /* Frameworks */,
 				2D85F60429E6147100CB5880 /* Resources */,
 				2DD1849329EDFB0600F55104 /* Embed Watch Content */,
+				0DC79D502A2473010020E66B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				2D27716829F3B60F009855F7 /* PBXTargetDependency */,
+				0DC79D612A2480560020E66B /* PBXTargetDependency */,
 			);
 			name = RailFinder;
 			packageProductDependencies = (
@@ -391,6 +476,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					0DC79D542A2480560020E66B = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					2D27714529F3B60E009855F7 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -437,11 +525,20 @@
 				2D27714529F3B60E009855F7 /* Railfinder Watch App */,
 				2D27715429F3B60F009855F7 /* Railfinder Watch AppTests */,
 				2D27715E29F3B60F009855F7 /* Railfinder Watch AppUITests */,
+				0DC79D542A2480560020E66B /* RailFinderWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0DC79D532A2480560020E66B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC79D5E2A2480560020E66B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D27714429F3B60E009855F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,6 +589,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0DC79D512A2480560020E66B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC79D5A2A2480560020E66B /* RailFinderWidgetBundle.swift in Sources */,
+				0DC79D5C2A2480560020E66B /* RailFinderWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D27714229F3B60E009855F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +656,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0DC79D612A2480560020E66B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DC79D542A2480560020E66B /* RailFinderWidgetExtension */;
+			targetProxy = 0DC79D602A2480560020E66B /* PBXContainerItemProxy */;
+		};
 		2D27715729F3B60F009855F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2D27714529F3B60E009855F7 /* Railfinder Watch App */;
@@ -578,6 +689,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0DC79D642A2480560020E66B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailFinderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RailFinderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.watahiki.RailFinder.RailFinderWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0DC79D652A2480560020E66B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3VU6Q2MZ6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailFinderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RailFinderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.watahiki.RailFinder.RailFinderWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2D27716B29F3B60F009855F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -983,6 +1152,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0DC79D632A2480560020E66B /* Build configuration list for PBXNativeTarget "RailFinderWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DC79D642A2480560020E66B /* Debug */,
+				0DC79D652A2480560020E66B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D27716A29F3B60F009855F7 /* Build configuration list for PBXNativeTarget "Railfinder Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
